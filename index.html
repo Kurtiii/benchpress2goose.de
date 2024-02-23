@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Benchpress to Goose</title>
+    <link href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="my-5">
+            <h1 class="fw-bold">Benchpress to Goose</h1>
+            <p class="text-muted">Echte Alphamales nutzen keine Kilogramm 💪</p>
+        </div>
+        <div class="col-xl-6">
+            <p>
+                Jeder kennt das Problem: man geht ins Fitnessstudio, drückt 120kg auf der Bank und ist stolz wie Oskar.
+                Nun möchte man seinen Lauch-Freunden 🥬 davon erzählen, aber die können sich deine krasse Leistung
+                natürlich
+                überhaupt nicht vorstellen.
+            </p>
+            <p>
+                Benchpress to Goose hilft dir dabei, deine Leistung in eine für jeden verständliche Einheit umzurechnen:
+                <b>Gänse 🪿</b>
+                <br>
+                Ein Gänse-Äquivalent entspricht dabei dem Gewicht einer durchschnittlichen Hausgans. Diese wiegt etwa
+                4,5
+                kg.
+            </p>
+        </div>
+
+        <div class="text-center my-5 form-text">
+            ⬇️
+            Scrolle nach unten, um dein gedrücktes Gewicht einzugeben
+            ⬇️
+        </div>
+
+        <hr class="my-5">
+
+        <h4 class="text-center my-5">
+            Ermittle dein Gänse-Äquivalent 🪿
+        </h4>
+
+        <div class="row">
+            <div class="col-xl-3">
+                <!-- Spacer -->
+            </div>
+            <div class="col-xl-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Gedrücktes Gewicht auf der Bank..." id="weight"
+                        aria-describedby="addonKg">
+                    <span class="input-group-text" id="addonKg"><b>kg</b></span>
+                </div>
+            </div>
+            <div class="col-xl-3 text-end">
+                <div class="d-lg-none mt-4">
+                    <!-- Spacer: Mobile -->
+                </div>
+                <button type="button" class="btn btn-dark px-5" id="submit">Gänsifizieren 🪿</button>
+            </div>
+            <div class="col-xl-3">
+                <!-- Spacer -->
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <p class="text-center">
+            Made with 🖤 and a lot of 🪿 by <a href="http://kurtiii.de"
+                class="text-reset fw-bold text-decoration-none">Kurt Krüger</a>
+        </p>
+        <p class="text-center form-text">
+            Diese Seite ist ein Spaßprojekt und ironisch gemeint.<br> Bitte nicht zu ernst nehmen. Quack🪿
+        </p>
+        <p class="text-center form-text mb-5">
+            <a href="https://kurtiii.de/privacy/" class="text-reset">Datenschutz</a>
+        </p>
+    </div>
+
+    <div class=" modal fade" id="modalResult" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Dein Gänse-Äquivalent</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+
+                    <div class="my-5">
+                        <h4 class="text-muted">
+                            <span id="weightNumber">0</span> kg entsprechen...
+                        </h4>
+                    </div>
+
+                    <div class="row my-5">
+                        <div class="col-4">
+                            <span class="form-text">Gänse 🪿</span>
+                            <h1 id="gooseNumber" class="fw-bold pb-0 mb-0">0</h1>
+                            <i class="form-text">á 4,5 kg</i>
+                        </div>
+                        <div class="col-4">
+                            <span class="form-text">Herden 🪿🪿</span>
+                            <h1 id="flockNumber" class="fw-bold pb-0 mb-0">0</h1>
+                            <i class="form-text">á 8 Gänse</i>
+                        </div>
+                        <div class="col-4">
+                            <span class="form-text">N-Presses 💪</span>
+                            <h1 id="nbenchpressesNumber" class="fw-bold pb-0 mb-0">0</h1>
+                            <i class="form-text">á 120 kg</i>
+                        </div>
+                    </div>
+
+                    <div class="my-5 form-text">
+                        ⬇️
+                        Hier das ganze nochmal in Bildform, damit du es deinen Lauch-Freunden 🥬 zeigen kannst
+                        ⬇️
+                    </div>
+
+                    <div>
+                        <div id="goosePyramid"></div>
+
+                        <img src="assets/img/gewichtsheber.png" alt="Gewichtsheber (auf dem Gänse sind)"
+                            class="img-fluid">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                        🔄 Erneut berechnen
+                    </button>
+                    <button type="button" class="btn btn-dark" onclick="shareResult()">
+                        🪿 Ergebnis teilen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="assets/app.js"></script>
+</body>
+
+</html>
