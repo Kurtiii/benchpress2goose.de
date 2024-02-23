@@ -57,7 +57,7 @@ $('#submit').on('click', function () {
     $('#weightNumber').text(weight);
     $('#flockNumber').text(flocks);
 
-    if (!tooHigh) {
+    if (tooHigh === false) {
         const maxHeight = 4; // maximum height of the pyramid (number of rows)
 
         let remainingGooses = gooses;
