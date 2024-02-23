@@ -25,11 +25,15 @@ $('#submit').on('click', function () {
 
     // calculate the number of gooses
     var gooses = weight / 4.5;
-    gooses = Math.ceil(gooses);
+    gooses = Math.floor(gooses);
+
+    if (weight < 4.5) {
+        gooses = 0;
+    }
 
     // calculate the number of flocks
     var flocks = gooses / 8;
-    flocks = Math.ceil(flocks);
+    flocks = Math.floor(flocks);
 
     // calculate the number of n-benchpresses
     var nbenchpresses = weight / 120;
