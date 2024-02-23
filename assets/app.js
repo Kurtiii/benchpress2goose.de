@@ -23,6 +23,17 @@ $('#submit').on('click', function () {
         return;
     }
 
+    // check if weight is too high
+    var tooHigh = false;
+    if (weight > 99000) {
+        // ask the user if he is sure
+        var r = confirm('Bei zu hohen Eingaben wird die grafische Darstellung deaktivert, da sonst die Seite abstürzen könnte. Möchtest du fortfahren?');
+        if (r === false) {
+            return;
+        }
+        tooHigh = true;
+    }
+
     // calculate the number of gooses
     var gooses = weight / 4.5;
     gooses = Math.floor(gooses);
@@ -46,33 +57,34 @@ $('#submit').on('click', function () {
     $('#weightNumber').text(weight);
     $('#flockNumber').text(flocks);
 
-    const maxHeight = 4; // maximum height of the pyramid (number of rows)
+    if (!tooHigh) {
+        const maxHeight = 4; // maximum height of the pyramid (number of rows)
 
-    let remainingGooses = gooses;
+        let remainingGooses = gooses;
 
-    for (let i = 1; i <= maxHeight; i++) {
-        // calculate the number of gooses in the current row
-        let goosesInRow = Math.min(2 * i - 1, remainingGooses);
+        for (let i = 1; i <= maxHeight; i++) {
+            // calculate the number of gooses in the current row
+            let goosesInRow = Math.min(2 * i - 1, remainingGooses);
 
-        remainingGooses -= goosesInRow;
+            remainingGooses -= goosesInRow;
 
-        let str = ' '.repeat(maxHeight - i);
-        let str2 = '🪿'.repeat(goosesInRow);
+            let str = ' '.repeat(maxHeight - i);
+            let str2 = '🪿'.repeat(goosesInRow);
 
-        $('#goosePyramid').append('<span class="fs-1">' + str + str2 + str + '</span><br>');
-    }
-
-    // check if there are remaining gooses
-    if (remainingGooses > 0) {
-        // add the remaining gooses to the last row (max length of the row is 9 --> then new row)
-        while (remainingGooses > 0) {
-            if (remainingGooses > 7) {
-                $('#goosePyramid').append('<span class="fs-1">🪿🪿🪿🪿🪿🪿🪿</span><br>');
-                remainingGooses -= 7;
-            } else {
-                let windEmoji = 7 - remainingGooses;
-                $('#goosePyramid').append('<span class="fs-1">🪿'.repeat(remainingGooses) + '💨'.repeat(windEmoji) + '</span><br>');
-                remainingGooses = 0;
+            $('#goosePyramid').append('<span class="fs-1">' + str + str2 + str + '</span><br>');
+        }
+        // check if there are remaining gooses
+        if (remainingGooses > 0) {
+            // add the remaining gooses to the last row (max length of the row is 9 --> then new row)
+            while (remainingGooses > 0) {
+                if (remainingGooses > 7) {
+                    $('#goosePyramid').append('<span class="fs-1">🪿🪿🪿🪿🪿🪿🪿</span><br>');
+                    remainingGooses -= 7;
+                } else {
+                    let windEmoji = 7 - remainingGooses;
+                    $('#goosePyramid').append('<span class="fs-1">🪿'.repeat(remainingGooses) + '💨'.repeat(windEmoji) + '</span><br>');
+                    remainingGooses = 0;
+                }
             }
         }
     }
