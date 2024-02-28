@@ -26,7 +26,7 @@ $('#submit').on('click', function () {
     // check if weight is too high
     var tooHigh = false;
     if (weight > 99000) {
-        // ask the user if he is sure
+        // ask the user if they want to continue
         var r = confirm('Bei zu hohen Eingaben wird die grafische Darstellung deaktivert, da sonst die Seite abstürzen könnte. Möchtest du fortfahren?');
         if (r === false) {
             return;
