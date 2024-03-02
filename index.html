@@ -53,7 +53,8 @@
             </div>
             <div class="col-xl-3">
                 <div class="input-group">
-                    <input type="number" class="form-control" placeholder="Gedrücktes Gewicht auf der Bank..."
+                    <input type="number" class="form-control form-control-lg"
+                        placeholder="Gedrücktes Gewicht..."
                         id="weight"
                         aria-describedby="addonKg">
                     <span class="input-group-text" id="addonKg"><b>kg</b></span>
@@ -63,7 +64,7 @@
                 <div class="d-lg-none mt-4">
                     <!-- Spacer: Mobile -->
                 </div>
-                <button type="button" class="btn btn-dark px-5" id="submit">Gänsifizieren 🪿</button>
+                <button type="button" class="btn btn-dark btn-lg px-5" id="submit">Gänsifizieren 🪿</button>
             </div>
             <div class="col-xl-3">
                 <!-- Spacer -->
@@ -72,19 +73,107 @@
 
         <hr class="my-5">
 
-        <p class="text-center">
-            Made with 🖤 and a lot of 🪿 by <a href="http://kurtiii.de"
-                class="text-reset fw-bold text-decoration-none">Kurt Krüger</a>
-        </p>
+        <h5>
+            Mehr oder weniger häufig gestellte Fragen
+        </h5>
+
+        <div class="accordion mt-5" id="accordionFAQ">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
+                        🪿 OMG, wo gibt's diese wundertollen Sticker?
+                    </button>
+                </h2>
+                <div id="faqOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-xl-10">
+                                <p>
+                                    <b>Derzeit sind leider keine Sticker mehr verfügbar!</b>
+                                    <br>
+                                    <br>
+                                    Aber keine Sorge, die Druckdatei ist <a href="assets/img/sticker.pdf"
+                                        class="text-reset"
+                                        download>hier</a>
+                                    für dich verfügbar.
+                                    <br>
+                                    Drucken lassen kannst du die Sticker beispielsweise bei <a
+                                        href="https://www.saxoprint.de/werbebedarf/aufkleber/aufkleber-drucken/"
+                                        target="_blank" class="text-reset">Saxoprint</a>.
+                                </p>
+                            </div>
+                            <div class="col-xl-2">
+                                <img src="assets/img/sticker.webp" alt="Bild der Aufkleber" loading="lazy"
+                                    class="img-fluid rounded">
+                            </div>
+                        </div>
+                        <p class="form-text mt-4">
+                            ⚠️
+                            Ich übernehme keine Haftung für die Anbringung und den Druck der Sticker durch Dritte. Dies
+                            bedeutet,
+                            dass
+                            ich nicht haftbar bin für
+                            Schäden, die durch die Anbringung bzw. Druck der Sticker durch Dritte entstehen, z. B. durch
+                            unerlaubtes Anbringen an fremden Eigentum.
+
+                            Ich übernehme ebenfalls keine Haftung für Sachbeschädigungen, die durch die Verwendung
+                            der
+                            Sticker durch Dritte entstehen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                        🪿 Warum gibt es diese Seite?
+                    </button>
+                </h2>
+                <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                    <div class="accordion-body">
+                        <img src="assets/img/goosegym.webp" alt="Gänse im Fitnessstudio" loading="lazy"
+                            class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                        🪿 Was ist der Unterschied zw. Gänsen und Enten?
+                    </button>
+                </h2>
+                <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+                    <div class="accordion-body">
+                        <p>
+                            <b>Kein Plan.</b>
+                            <br><br>
+                            Ich bin der Meinung, dass ist alles nur eine große Verschwörung und das sind eigentlich die
+                            gleichen Tiere.
+                        </p>
+                        <p class="fs-2">
+                            🦆 = 🪿
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5">
         <p class="text-center form-text">
             Diese Seite ist ein Spaßprojekt und ironisch gemeint.<br> Bitte nicht zu ernst nehmen. Quack🪿
         </p>
         <p class="text-center form-text mb-5">
-            <a href="https://kurtiii.de/privacy/" class="text-reset">Datenschutz</a>
+            <a href="#" class="text-reset" data-bs-toggle="modal" data-bs-target="#modalPrivacy">Datenschutz</a>
+            &bull;
+            <a href="https://github.com/Kurtiii/benchpress2goose.de" class="text-reset">Quellcode</a>
         </p>
     </div>
 
-    <div class=" modal fade" id="modalResult" tabindex="-1" aria-hidden="true">
+    <!-- Modal: Result -->
+    <div class="modal fade" id="modalResult" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -137,6 +226,102 @@
                     <button type="button" class="btn btn-dark" onclick="shareResult()">
                         🪿 Ergebnis teilen
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Privacy -->
+    <div class="modal fade" id="modalPrivacy" tabindex="-1" aria-labelledby="modalPrivacyLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalPrivacyLabel">Datenschutzhinweise</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Bei Fragen bzgl. des Datenschutzes können Sie sich gerne an mich wenden:
+                        <a href="mailto:hi@kurtiii.de" class="text-reset">hi@kurtiii.de</a>
+                    </p>
+                    <h4>
+                        Wo werden Ihre Daten gespeichert?
+                    </h4>
+                    <p>
+                        Ihre Daten werden auf Servern in Deutschland gespeichert. Unser Server werden von der Firma
+                        <a
+                            href="https://mc-host24.de/datenschutz" class="text-reset">Gericke KG</a> betrieben.
+                        Die Kommunikation zwischen Ihrem Browser und unserem Server erfolgt verschlüsselt.
+                    </p>
+                    <p>
+                        Um unseren Server vor Angriffen zu schützen, verwenden wir Cloudflare.
+                        Dies ist ein Dienst, der den Datenverkehr zwischen Ihrem Browser und unserem Server filtert
+                        und
+                        schädliche Anfragen
+                        blockiert und die Ladezeiten unserer Website verbessert.
+                        Cloudflare sitzt in den USA und ist aber unter dem <a
+                            href="https://www.privacyshield.gov/participant?id=a2zt0000000GnZKAA0"
+                            class="text-reset">Privacy Shield</a>
+                        zertifiziert.
+                        Laut Cloudflare werden keine Logs gespeichert, die Rückschlüsse auf Ihre Person zulassen.
+                        Weitere Informationen
+                        finden Sie in der <a href="https://www.cloudflare.com/privacypolicy/"
+                            class="text-reset">Datenschutzerklärung von
+                            Cloudflare</a>.
+                    </p>
+
+                    <h4>
+                        Welche personenbezogenen Daten verarbeiten wir und zu welchen Zwecken?
+                    </h4>
+
+                    <p>
+                        Wir verarbeiten und speichern personenbezogene Daten, die Sie uns freiwillig zur Verfügung
+                        stellen.
+                        Auf unserer Seite werden keine Daten an Drittanbieter (<i>ausgenommen Cloudflare, siehe
+                            oben</i>) übermittelt.
+                        Außerdem verwenden wir keine nicht technisch-notwendige Cookies und keine Analysetools.
+                    </p>
+
+                    <h6>Server-Log-Dateien</h6>
+                    <p>
+                        Bei jedem Zugriff auf unsere Website werden automatisch Informationen durch den Browser Ihres
+                        Endgeräts an den
+                        Server unserer Website gesendet und temporär in Protokolldateien (sogenannte Server-Log-Dateien)
+                        gespeichert.
+                        Wir erheben und speichern diese Informationen, um bei Serverproblemen die Fehlerursache zu
+                        ermitteln und Angriffe
+                        auf unsere Website abzuwehren.
+                        Die Informationen in den Server-Log-Dateien werden automatisch nach 7 Tagen gelöscht.
+                    </p>
+                    <p>
+                        Die folgenden Informationen werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten
+                        Löschung gespeichert:
+                    <ul>
+                        <li>Anonymisierte IP-Adresse</li>
+                        <li>Datum und Uhrzeit des Zugriffs</li>
+                        <li>Name und URL der abgerufenen Datei</li>
+                        <li>Erfolgsstatus des Aufrufs (ggf. aufgetretene Fehlermeldungen)</li>
+                    </ul>
+                    </p>
+
+                    <h6>Konvertierung von KG in Gänse</h6>
+                    <p>
+                        Die von Ihnen eingegebenen Daten werden nicht gespeichert und nicht an Dritte weitergegeben.
+                        Die Berechnung erfolgt ausschließlich in Ihrem Browser.
+                    </p>
+                    <p>
+                        Die Berechnung wird nicht protokolliert und nicht an Dritte übermittelt und findet
+                        ausschließlich lokal auf Ihrem Gerät statt.
+                    </p>
+
+                    <hr class="my-5">
+                    <p>
+                        Sie können den Quellcode dieser Seite auf
+                        <a
+                            href="https://github.com/Kurtiii/benchpress2goose.de"
+                            class="text-reset">https://github.com/Kurtiii/benchpress2goose.de</a>
+                        einsehen.
+                    </p>
                 </div>
             </div>
         </div>
