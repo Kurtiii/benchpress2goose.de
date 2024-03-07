@@ -1,3 +1,17 @@
+
+
+// check if the browser supports the gooses emoji
+const ctx = document.createElement("canvas").getContext("2d");
+ctx.canvas.width = ctx.canvas.height = 1;
+ctx.fillText("🪿", -4, 4);
+var emojiSupported = ctx.getImageData(0, 0, 1, 1).data[3] > 0;
+
+if (emojiSupported === false) {
+    // replace the gooses emoji with a duck emoji
+    $('.goose').html('🦆');
+}
+
+
 $('#submit').on('click', function () {
     // reset pyramid and goose number
     $('#goosePyramid').empty();
@@ -69,7 +83,11 @@ $('#submit').on('click', function () {
             remainingGooses -= goosesInRow;
 
             let str = ' '.repeat(maxHeight - i);
-            let str2 = '🪿'.repeat(goosesInRow);
+            if (emojiSupported === true) {
+                var str2 = '🪿'.repeat(goosesInRow);
+            } else {
+                var str2 = '🦆'.repeat(goosesInRow);
+            }
 
             $('#goosePyramid').append('<span class="fs-1">' + str + str2 + str + '</span><br>');
         }
@@ -78,11 +96,19 @@ $('#submit').on('click', function () {
             // add the remaining gooses to the last row (max length of the row is 9 --> then new row)
             while (remainingGooses > 0) {
                 if (remainingGooses > 7) {
-                    $('#goosePyramid').append('<span class="fs-1">🪿🪿🪿🪿🪿🪿🪿</span><br>');
+                    if (emojiSupported === true) {
+                        $('#goosePyramid').append('<span class="fs-1">🪿🪿🪿🪿🪿🪿🪿</span><br>');
+                    } else {
+                        $('#goosePyramid').append('<span class="fs-1">🦆🦆🦆🦆🦆🦆🦆</span><br>');
+                    }
                     remainingGooses -= 7;
                 } else {
                     let windEmoji = 7 - remainingGooses;
-                    $('#goosePyramid').append('<span class="fs-1">🪿'.repeat(remainingGooses) + '💨'.repeat(windEmoji) + '</span><br>');
+                    if (emojiSupported === true) {
+                        $('#goosePyramid').append('<span class="fs-1">🪿'.repeat(remainingGooses) + '💨'.repeat(windEmoji) + '</span><br>');
+                    } else {
+                        $('#goosePyramid').append('<span class="fs-1">🦆'.repeat(remainingGooses) + '💨'.repeat(windEmoji) + '</span><br>');
+                    }
                     remainingGooses = 0;
                 }
             }
@@ -99,7 +125,7 @@ function shareResult() {
 
     // share the result
     var text = 'Ich kann ' + gooses + ' Gänse auf der Bank drücken! 💪🪿 ';
-    text = text + ' Und du? 🤔 ';
+    text = text + ' Und du? 🤔 Finde es heraus auf:';
     text = text + 'https://benchpress2goose.de';
     var url = 'https://benchpress2goose.de';
 
